@@ -1,0 +1,10 @@
+/* src/index.css */
+html {
+  font-family: "courier new", monospace;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  color: green;
+}
+.content {
+}

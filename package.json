@@ -23,7 +23,8 @@
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
     "esbuild": "^0.19.10",
-    "serve": "^14.2.1"
+    "serve": "^14.2.1",
+    "typescript-plugin-css-modules": "^5.0.2"
   },
   "dependencies": {
     "react": "^18.2.0",

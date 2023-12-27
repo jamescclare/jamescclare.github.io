@@ -510,7 +510,7 @@
             }
             return element;
           };
-          function createElement2(type, config, children) {
+          function createElement4(type, config, children) {
             var propName;
             var props = {};
             var key = null;
@@ -1084,7 +1084,7 @@
             }
             return dispatcher.useContext(Context);
           }
-          function useState2(initialState) {
+          function useState3(initialState) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useState(initialState);
           }
@@ -1609,7 +1609,7 @@
                 error("React.createElement: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", typeString, info);
               }
             }
-            var element = createElement2.apply(this, arguments);
+            var element = createElement4.apply(this, arguments);
             if (element == null) {
               return element;
             }
@@ -1886,7 +1886,7 @@
           exports.useMemo = useMemo;
           exports.useReducer = useReducer;
           exports.useRef = useRef;
-          exports.useState = useState2;
+          exports.useState = useState3;
           exports.useSyncExternalStore = useSyncExternalStore;
           exports.useTransition = useTransition;
           exports.version = ReactVersion;
@@ -2382,9 +2382,9 @@
           if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
             __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
           }
-          var React2 = require_react();
+          var React4 = require_react();
           var Scheduler = require_scheduler();
-          var ReactSharedInternals = React2.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React4.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           var suppressWarning = false;
           function setSuppressWarning(newSuppressWarning) {
             {
@@ -2433,7 +2433,7 @@
           var HostPortal = 4;
           var HostComponent = 5;
           var HostText = 6;
-          var Fragment = 7;
+          var Fragment2 = 7;
           var Mode = 8;
           var ContextConsumer = 9;
           var ContextProvider = 10;
@@ -3589,7 +3589,7 @@
                 return "DehydratedFragment";
               case ForwardRef:
                 return getWrappedName$1(type, type.render, "ForwardRef");
-              case Fragment:
+              case Fragment2:
                 return "Fragment";
               case HostComponent:
                 return type;
@@ -3989,7 +3989,7 @@
             {
               if (props.value == null) {
                 if (typeof props.children === "object" && props.children !== null) {
-                  React2.Children.forEach(props.children, function(child) {
+                  React4.Children.forEach(props.children, function(child) {
                     if (child == null) {
                       return;
                     }
@@ -9388,7 +9388,7 @@
               }
             }
           }
-          function createElement2(type, props, rootContainerElement, parentNamespace) {
+          function createElement4(type, props, rootContainerElement, parentNamespace) {
             var isCustomComponentTag;
             var ownerDocument = getOwnerDocumentFromRootContainer(rootContainerElement);
             var domElement;
@@ -10249,7 +10249,7 @@
               }
               parentNamespace = hostContextDev.namespace;
             }
-            var domElement = createElement2(type, props, rootContainerInstance, parentNamespace);
+            var domElement = createElement4(type, props, rootContainerInstance, parentNamespace);
             precacheFiberNode(internalInstanceHandle, domElement);
             updateFiberProps(domElement, props);
             return domElement;
@@ -12436,7 +12436,7 @@
             }
           }
           var fakeInternalInstance = {};
-          var emptyRefsObject = new React2.Component().refs;
+          var emptyRefsObject = new React4.Component().refs;
           var didWarnAboutStateAssignmentForComponent;
           var didWarnAboutUninitializedState;
           var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -13260,7 +13260,7 @@
               }
             }
             function updateFragment2(returnFiber, current2, fragment, lanes, key) {
-              if (current2 === null || current2.tag !== Fragment) {
+              if (current2 === null || current2.tag !== Fragment2) {
                 var created = createFiberFromFragment(fragment, returnFiber.mode, lanes, key);
                 created.return = returnFiber;
                 return created;
@@ -13663,7 +13663,7 @@
                 if (child.key === key) {
                   var elementType = element.type;
                   if (elementType === REACT_FRAGMENT_TYPE) {
-                    if (child.tag === Fragment) {
+                    if (child.tag === Fragment2) {
                       deleteRemainingChildren(returnFiber, child.sibling);
                       var existing = useFiber(child, element.props.children);
                       existing.return = returnFiber;
@@ -17838,7 +17838,7 @@
                 var _resolvedProps2 = workInProgress2.elementType === type ? _unresolvedProps2 : resolveDefaultProps(type, _unresolvedProps2);
                 return updateForwardRef(current2, workInProgress2, type, _resolvedProps2, renderLanes2);
               }
-              case Fragment:
+              case Fragment2:
                 return updateFragment(current2, workInProgress2, renderLanes2);
               case Mode:
                 return updateMode(current2, workInProgress2, renderLanes2);
@@ -18111,7 +18111,7 @@
               case SimpleMemoComponent:
               case FunctionComponent:
               case ForwardRef:
-              case Fragment:
+              case Fragment2:
               case Mode:
               case Profiler:
               case ContextConsumer:
@@ -22370,7 +22370,7 @@
             return fiber;
           }
           function createFiberFromFragment(elements, mode, lanes, key) {
-            var fiber = createFiber(Fragment, elements, key, mode);
+            var fiber = createFiber(Fragment2, elements, key, mode);
             fiber.lanes = lanes;
             return fiber;
           }
@@ -23508,22 +23508,91 @@
   });
 
   // src/index.tsx
-  var React = __toESM(require_react());
+  var React3 = __toESM(require_react());
   var ReactDOM = __toESM(require_client());
-  var App = () => {
-    const [showCursor, setShowCursor] = React.useState(false);
+
+  // src/components/TerminalLines.tsx
+  var React2 = __toESM(require_react());
+
+  // src/components/TerminalText.tsx
+  var React = __toESM(require_react());
+
+  // src/components/TerminalText.module.css
+  var TerminalText_default = {
+    terminal: "TerminalText_terminal"
+  };
+
+  // src/components/TerminalText.tsx
+  var TerminalText = ({ text, typeCharPerSec = 1, onComplete = () => {
+  }, showCursor = true }) => {
+    const [isCursorOn, setIsCursorOn] = React.useState(showCursor);
+    const [currentText, setCurrentText] = React.useState("");
     React.useEffect(() => {
+      setCurrentText("");
+      let snipIndex = 1;
+      const intervalId = setInterval(() => {
+        setCurrentText(text.substring(0, snipIndex));
+        if (snipIndex === text.length) {
+          clearInterval(intervalId);
+          onComplete();
+        }
+        ;
+        snipIndex++;
+      }, typeCharPerSec * 1e3);
+      return () => clearTimeout(intervalId);
+    }, [text]);
+    React.useEffect(() => {
+      if (!showCursor)
+        return;
       const timeoutId = setTimeout(() => {
-        setShowCursor(!showCursor);
+        setIsCursorOn(!isCursorOn);
       }, 1e3);
       return () => clearTimeout(timeoutId);
-    }, [showCursor]);
-    const cursor = showCursor ? "\u2588" : "_";
-    return /* @__PURE__ */ React.createElement("div", { className: "content" }, `> jclare.dev${cursor}`);
+    }, [isCursorOn, showCursor]);
+    const cursor = showCursor ? isCursorOn ? "\u2588" : "_" : "";
+    return /* @__PURE__ */ React.createElement("div", { className: TerminalText_default.terminal }, `> ${currentText}${cursor}`);
   };
+  var TerminalText_default2 = TerminalText;
+
+  // src/components/TerminalLines.tsx
+  var TerminalLines = ({ lines }) => {
+    const [currentIndex, setCurrentIndex] = React2.useState(0);
+    const lineElements = lines.slice(0, currentIndex + 1).map((props, index) => {
+      const onComplete = () => {
+        setCurrentIndex(index + 1);
+        props.onComplete?.();
+      };
+      const isLastLine = index === lines.length - 1;
+      const showCursor = currentIndex === index || isLastLine;
+      return /* @__PURE__ */ React2.createElement(
+        TerminalText_default2,
+        {
+          key: index,
+          ...props,
+          showCursor,
+          onComplete
+        }
+      );
+    });
+    return /* @__PURE__ */ React2.createElement(React2.Fragment, null, ...lineElements);
+  };
+  var TerminalLines_default = TerminalLines;
+
+  // src/index.tsx
+  var App = () => /* @__PURE__ */ React3.createElement("div", null, /* @__PURE__ */ React3.createElement(
+    TerminalLines_default,
+    {
+      lines: [
+        { text: "jclare.dev", typeCharPerSec: 0.1 },
+        { text: 'NAME="James Clare"', typeCharPerSec: 0.08 },
+        { text: 'OCCUPATION="Software Engineer"', typeCharPerSec: 0.08 },
+        { text: "", typeCharPerSec: 0.1 }
+      ]
+    }
+  ));
   var container = document.getElementById("app");
   var root = ReactDOM.createRoot(container);
-  root.render(/* @__PURE__ */ React.createElement(App, null));
+  root.render(/* @__PURE__ */ React3.createElement(App, null));
 })();
 /*! Bundled license information:
 

@@ -4,7 +4,10 @@ html {
   margin: 0;
   padding: 0;
   background-color: black;
-  color: green;
 }
-.content {
+
+/* src/components/TerminalText.module.css */
+.TerminalText_terminal {
+  font-family: "courier new", monospace;
+  color: green;
 }

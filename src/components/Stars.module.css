@@ -1,0 +1,17 @@
+.container {
+    overflow: hidden;
+}
+
+.stars {
+    aspect-ratio: 1/1;
+}
+
+.fit-width {
+    width: 100%;
+}
+
+.fit-height {
+    height: 100%;
+}
+
+

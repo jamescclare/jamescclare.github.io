@@ -1,15 +1,25 @@
 import * as React from 'react';
+import classNames from 'classnames/bind';
 // TODO: Get css-modules type importing working.
 import styles from './TerminalText.module.css';
 
+const cx = classNames.bind(styles);
+
 type Props = {
+    className?: string,
     text: string,
     typeCharPerSec?: number,
     showCursor?: boolean,
     onComplete?: () => void
 };
 
-const TerminalText = ({ text, typeCharPerSec = 1, onComplete = () => {}, showCursor = true }: Props) => {
+const TerminalText = ({ 
+    className,
+    text,
+    typeCharPerSec = 1,
+    onComplete = () => {},
+    showCursor = true 
+}: Props) => {
     const [isCursorOn, setIsCursorOn] = React.useState(showCursor);
     const [currentText, setCurrentText] = React.useState('');
 
@@ -48,7 +58,16 @@ const TerminalText = ({ text, typeCharPerSec = 1, onComplete = () => {}, showCur
             : '_' 
         : '';
 
-    return <div className={styles.terminal}>{`> ${currentText}${cursor}`}</div>;
+    return (
+        <div 
+            className={cx({ 
+                [className]: !!className,
+                'terminal': true 
+            })}
+        >
+            {`> ${currentText}${cursor}`}
+        </div>
+    );
 };
 
 export { TerminalText, Props as TerminalTextProps };

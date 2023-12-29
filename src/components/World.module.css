@@ -1,0 +1,54 @@
+.world {
+    clip-path: url(#world-clip);
+    background: repeating-linear-gradient( 0deg, black, black 4px, green 5px, green 5px );
+    width: 670px;
+    animation: zoom 5s linear;
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes slide-1 {
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slide-2 {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0%);
+  }
+}
+
+.map {
+    stroke: green;
+    fill: black;
+    --slide-duration: 100s; 
+}
+
+.map:hover {
+    fill: green;
+}
+
+.first {
+    animation: var(--slide-duration) linear infinite slide-1;
+}
+
+.second {
+    animation: var(--slide-duration) linear infinite slide-2;
+}
